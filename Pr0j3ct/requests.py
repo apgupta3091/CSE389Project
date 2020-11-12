@@ -247,22 +247,22 @@ class RequestProcessor(threading.Thread):
         """
         handle POST http request
         """
-        # check whether POST to login.html
-        # proceed only if login.html
-        # get username and password from POST content
         received = message.split("\n")[0]
         targetInfo = received.split()[1]
         #convert URL to original string
         targetInfo = urllib.parse.unquote(targetInfo)
         self.logger.info("POST {}".format(targetInfo))
-        #if requested root send back index file header
+        
+         #proceed only if login.html
         if targetInfo == "/login.html" :
             with open(os.path.join(self.rootDirectory, targetInfo), "r") as inputFile:
                 data = inputFile.read()
             self._sendHEADER(200, "OK", "text/html; charset=utf-8", len(data))
         else:
             pass
+        
         print(message)
+        # get username and password from POST content
         username = None
         password = None
         # user authHandler to verify the username and password
