@@ -1,0 +1,25 @@
+{
+    "Allow": [
+        "index.html",
+        "login.html",
+        ".media/*.jpg"
+    ],
+    "Forbidden": [
+        "*",
+        ".meta/*",
+        ".media/*.md"
+    ],
+    "Exception": [
+        {
+            "Username": "admin",
+            "Files": [
+                "presentation.html",
+                "CSE389.pptx"
+            ]
+        }
+    ],
+    "Database": ".meta/users.keys",
+    "Handler": {
+        "login.html": ".meta/login.html.py"
+    }
+}
