@@ -10,6 +10,8 @@ import mimetypes
 import urllib.parse
 from email.utils import formatdate
 
+# class that processes the different HTTP requests contains functions:
+# (run, stop, send, handle, sendHeader,GET, HEAD, POST, errorMessage)
 class RequestProcessor(threading.Thread):
     def __init__(self, rootDirectory, indexFile, connSocket, connSocketAddress, authHandler):
         threading.Thread.__init__(self)
